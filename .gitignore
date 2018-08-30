@@ -19,3 +19,6 @@ erl_crash.dump
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
 
+# application secrets
+config/*.secret.exs
+apps/*/config/*.secret.exs

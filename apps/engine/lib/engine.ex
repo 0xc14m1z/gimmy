@@ -1,18 +1,6 @@
 defmodule Engine do
   @moduledoc """
-  Documentation for Emgome.
+  This module is the engine of the entire Gimmy application and it's primary
+  API.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Engine.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
