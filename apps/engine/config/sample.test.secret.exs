@@ -14,3 +14,8 @@ config :logger,
   backends: [:console],
   level: :warn,
   compile_time_purge_level: :info
+
+# reduce the time needed to hash password (use only in test env)
+config :argon2_elixir,
+  t_cost: 1,
+  m_cost: 8

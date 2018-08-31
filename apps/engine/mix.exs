@@ -7,7 +7,9 @@ defmodule Engine.MixProject do
   @deps [
     { :mariaex, ">= 0.0.0" },
     { :ecto, "~> 2.2" },
-    { :ex_doc, ">= 0.0.0", only: :dev }
+    { :ex_doc, ">= 0.0.0", only: :dev },
+    { :comeonin, "~> 4.0" },
+    { :argon2_elixir, "~> 1.3" }
   ]
 
   @aliases [
