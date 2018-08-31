@@ -18,4 +18,11 @@ defmodule Engine.Accounts.User do
     timestamps()
   end
 
+  def create_changeset(user = %User{}, attributes \\ %{}) do
+    user
+    |> cast(attributes, [:username, :password, :name, :role])
+    |> put_change(:active, true)
+    |> unique_constraint(:username)
+  end
+
 end
