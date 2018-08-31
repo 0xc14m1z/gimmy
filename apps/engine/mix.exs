@@ -32,6 +32,7 @@ defmodule Engine.MixProject do
 
   def application do
     [
+      mod: { Engine.Application, [] },
       extra_applications: [:logger]
     ]
   end
