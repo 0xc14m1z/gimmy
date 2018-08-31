@@ -8,6 +8,8 @@ defmodule Engine.Repo.Migrations.CreateUsers do
       add :name, :string, null: false
       add :role, :integer, null: false, default: 0
       add :active, :boolean, null: false, default: true
+
+      timestamps()
     end
 
     create index(:users, :username, unique: true)
