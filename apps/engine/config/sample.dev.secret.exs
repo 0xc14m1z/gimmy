@@ -2,7 +2,7 @@ use Mix.Config
 
 config :engine, Engine.Repo,
   adapter: Ecto.Adapters.MySQL,
-  host: "",
+  hostname: "",
   username: "",
   password: "",
   database: "",
