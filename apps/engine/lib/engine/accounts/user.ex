@@ -19,8 +19,13 @@ defmodule Engine.Accounts.User do
   end
 
   def create_changeset(user = %User{}, attributes \\ %{}) do
+    allowed = [:username, :password, :name, :role]
+    required = [:username, :password, :name]
+
     user
-    |> cast(attributes, [:username, :password, :name, :role])
+    |> cast(attributes, allowed)
+    |> validate_required(required)
+    |> validate_inclusion(:role, roles() |> Map.values())
     |> put_change(:active, true)
     |> unique_constraint(:username)
   end

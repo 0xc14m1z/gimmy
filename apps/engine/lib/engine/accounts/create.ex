@@ -1,10 +1,10 @@
 defmodule Engine.Accounts.Create do
   @moduledoc false
 
-  import Ecto.Changeset, only: [ put_change: 3, get_change: 2 ]
+  import Ecto.Changeset, only: [ put_change: 3, get_change: 2, delete_change: 2 ]
 
   alias Engine.Repo
-  alias Engine.Accounts.User
+  alias Engine.Accounts.{ Password, User }
 
   def create(attributes = %{ username: _, password: _, name: _, role: _ }) do
     attributes
@@ -19,10 +19,11 @@ defmodule Engine.Accounts.Create do
   end
 
   defp complete_profile(user = %{ valid?: true }) do
-    hash = get_change(user, :password)
+    hash = user |> get_change(:password) |> Password.hash()
 
     user
     |> put_change(:password_digest, hash)
+    |> delete_change(:password)
     |> Repo.insert
   end
 
