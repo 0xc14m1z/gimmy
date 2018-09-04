@@ -1,7 +1,7 @@
 defmodule Engine.Accounts.CreateTest do
   use ExUnit.Case
 
-  alias Engine.{ Accounts, Repo, User }
+  alias Engine.{ Accounts, Repo }
 
   setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
