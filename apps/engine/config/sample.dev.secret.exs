@@ -7,3 +7,7 @@ config :engine, Engine.Repo,
   password: "",
   database: "",
   collation: "utf8_bin"
+
+config :engine, Engine.Accounts.Guardian,
+  issuer: "Gimmy.Engine",
+  secret_key: "Secret key. You can use `mix guardian.gen.secret` to get one"

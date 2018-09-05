@@ -9,6 +9,10 @@ config :engine, Engine.Repo,
   collation: "utf8_bin",
   pool: Ecto.Adapters.SQL.Sandbox
 
+config :engine, Engine.Accounts.Guardian,
+  issuer: "Gimmy.Engine",
+  secret_key: "Secret key. You can use `mix guardian.gen.secret` to get one"
+
 # avoid queries to be logged in console during tests
 config :logger,
   backends: [:console],
