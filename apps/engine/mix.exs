@@ -5,11 +5,13 @@ defmodule Engine.MixProject do
   @version  "0.1.0"
 
   @deps [
+    { :mix_test_watch, github: "aforward/mix-test.watch", only: :dev, runtime: false },
     { :mariaex, ">= 0.0.0" },
     { :ecto, "~> 2.2" },
     { :ex_doc, ">= 0.0.0", only: :dev },
     { :comeonin, "~> 4.0" },
-    { :argon2_elixir, "~> 1.3" }
+    { :argon2_elixir, "~> 1.3" },
+    { :guardian, "~> 1.0" }
   ]
 
   @aliases [
