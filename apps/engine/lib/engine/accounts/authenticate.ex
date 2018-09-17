@@ -1,7 +1,6 @@
 defmodule Engine.Accounts.Authenticate do
-  import Ecto.Query, only: [from: 2]
 
-  alias Engine.{ Accounts, Repo }
+  alias Engine.Accounts
   alias Engine.Accounts.{ Guardian, Password, User }
 
   def sign_in(username, password) do
