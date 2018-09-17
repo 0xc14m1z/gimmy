@@ -50,6 +50,7 @@ defmodule Engine.Accounts do
   """
   defdelegate find(id), to: Find
 
+
   @doc """
 
   Find a user by given username.
@@ -61,6 +62,7 @@ defmodule Engine.Accounts do
 
   """
   defdelegate find_by_username(username), to: Find
+
 
   alias Engine.Accounts.Authenticate
 
@@ -82,6 +84,7 @@ defmodule Engine.Accounts do
   """
   defdelegate sign_in(username, password), to: Authenticate
 
+
   @doc """
 
   Authenticate a user from it's JWT token.
@@ -93,5 +96,36 @@ defmodule Engine.Accounts do
 
   """
   defdelegate authenticate(token), to: Authenticate
+
+
+  @doc """
+
+  Handle the update account process of a user.
+
+  ## Steps
+    1. user is looked;
+    2. attributes are validated
+
+  ## Takes
+
+    1. `id`: integer
+    2. `attributes`: a map that can contain:
+      1. `username`: string
+      2. `name`: string
+      3. `role`: integer
+      4. `active`: boolean
+
+  `username` must be unique, `role` must be one of the accepted roles.
+
+  ## Returns
+
+    - `{ :ok, %User }` when the user get updated correctly.
+    - `{ :error, errors }` when errors occur during the update process.
+
+  `errors` is a keyword list that has attributes names as keys and a tuple in the form `{ msg, details }` as value.
+
+  """
+  alias Engine.Accounts.Update
+  defdelegate update(id, attributes), to: Update
 
 end

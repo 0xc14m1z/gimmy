@@ -30,4 +30,15 @@ defmodule Engine.Accounts.User do
     |> unique_constraint(:username)
   end
 
+  def update_changeset(user = %User{}, attributes \\ %{}) do
+    allowed = [:username, :name, :role, :active]
+
+    user
+    |> cast(attributes, allowed)
+    |> validate_length(:username, min: 1)
+    |> validate_length(:name, min: 1)
+    |> validate_inclusion(:role, roles() |> Map.values())
+    |> unique_constraint(:username)
+  end
+
 end
