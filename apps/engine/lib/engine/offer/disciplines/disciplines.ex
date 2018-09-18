@@ -1,8 +1,14 @@
 defmodule Engine.Offer.Disciplines do
+  @moduledoc """
+  This module handles the creation, update and deletion of disciplines.
+  """
 
-  def create(name, teacher) do
+  alias Engine.Repo
 
-  end
+
+  alias Engine.Offer.Disciplines.Create
+  defdelegate create(name, teacher), to: Create
+
 
   def update(id, attributes) do
 
