@@ -1,4 +1,4 @@
-defmodule Engine.Offer.DisciplinesTest do
+defmodule Engine.Offer.Disciplines.CreateTest do
   use ExUnit.Case
 
   alias Engine.Repo
