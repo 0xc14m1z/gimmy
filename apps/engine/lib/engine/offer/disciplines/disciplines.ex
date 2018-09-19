@@ -14,8 +14,7 @@ defmodule Engine.Offer.Disciplines do
   alias Disciplines.Update
   defdelegate update(id, attributes), to: Update
 
-  def delete(id) do
-
-  end
+  alias Disciplines.Delete
+  defdelegate delete(id), to: Delete
 
 end
