@@ -3,7 +3,6 @@ defmodule Engine.Offer.Disciplines do
   This module handles the creation, update and deletion of disciplines.
   """
 
-  alias Engine.Repo
   alias Engine.Offer.Disciplines
 
   alias Disciplines.Create
@@ -12,9 +11,8 @@ defmodule Engine.Offer.Disciplines do
   alias Disciplines.Find
   defdelegate find(id), to: Find
 
-  def update(id, attributes) do
-
-  end
+  alias Disciplines.Update
+  defdelegate update(id, attributes), to: Update
 
   def delete(id) do
 

@@ -25,9 +25,11 @@ defmodule Engine.Offer.Disciplines.Discipline do
 
   def update_changeset(discipline = %Discipline{}, attributes \\ %{}) do
     allowed = [:name, :teacher, :active]
+    required = [:name]
 
     discipline
     |> cast(attributes, allowed)
+    |> validate_required(required)
     |> validate_length(:name, min: 1)
     |> unique_constraint(:name)
   end
