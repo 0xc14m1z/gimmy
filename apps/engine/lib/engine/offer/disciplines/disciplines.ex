@@ -5,6 +5,9 @@ defmodule Engine.Offer.Disciplines do
 
   alias Engine.Offer.Disciplines
 
+  alias Disciplines.List
+  defdelegate list, to: List
+
   alias Disciplines.Create
   defdelegate create(name, teacher), to: Create
 
